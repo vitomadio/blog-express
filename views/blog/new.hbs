@@ -1,0 +1,12 @@
+<h1>New Post</h1>
+<form action="/blog"  method="post" enctype="multipart/form-data">
+	<label for="title">Title:</label>
+	<input type="text" placeholder="title" name="title" class="form-control">
+	<label for="description">Description:</label>
+	<input type="text" placeholder="description" name="description" class="form-control">
+	
+	<input type="file" placeholder="imagen" name="imagen" >
+	<input type="hidden" name="_id">
+	<br>
+	<button class="btn btn-primary">Post It!</button>
+</form>
