@@ -12,7 +12,7 @@ router.get("/blog/new",function(req,res){
 	res.render("blog/new");
 });
 
-router.get('/blog',function(req,res,next){
+router.get('/',function(req,res,next){
 	Post.find({},function(err,docs){
 		docs.sort(function(a,b){
 			if(a<b){return -1}
