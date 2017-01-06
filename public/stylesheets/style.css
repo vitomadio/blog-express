@@ -1,1 +1,14 @@
+.glyphicon-heart{
+	display:inline-block;
+	float:right;
+	height:40px;
+	padding:1.5%;color:grey;
+}
 
+.fa-heart{
+	color:red;
+}
+
+.thumbnail{
+	padding:10px 10px;
+}

@@ -1,2 +1,43 @@
 <h1>User Profile</h1>
+<img src="{{user.avatar}}" alt="" style="height:50px">
+<p>{{user.email}}</p>
+<p><strong>Name: </strong> {{user.name}}</p>
+<p><strong>Last Name:</strong> {{user.lastName}}</p>
+<p><strong>Age:</strong> {{user.age}}</p>
+{{!-- <p>{{csrfToken}}</p> --}}
+<hr>
+<a class="btn btn-default" href="/user/{{user._id}}/edit">Edit Profile</a>
+<hr>
+
+<h1>My Posts</h1>
+
+
+{{#each posts }}
+	
+	<div class="thumbnail">
+		<div class="row">
+			<div class="col-md-6 col-sm-6">
+				<h2>{{title}}</h2>
+			</div>
+		</div>
+		<img style="height:400px" src="{{imagen}}">
+		<div class="caption">{{description}}</div>
+		<div style="padding:5px;">
+		<div class="btn-group">
+			<a class="btn btn-primary" href="/{{_id}}">Show</a>
+			<a class="btn btn-primary" href="/{{_id}}/delete">Delete</a>
+		</div>
+		{{#if like}}
+		<a href="{{_id}}/like"><i class="fa fa-heart fa-2x fa-pull-right"></i><p>{{likes}}</p> </a>
+		{{else}}
+		<a href="{{_id}}/like"><i class="fa fa-heart-o fa-2x fa-pull-right"></i></a>
+		{{/if}}		
+		</div>
+	</div>
+	
+{{/each}}
+			
+
+	
+
 

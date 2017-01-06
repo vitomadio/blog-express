@@ -1,0 +1,13 @@
+<h1>Edit Profile</h1>
+<form action="/user/{{user._id}}/edit"  method="post" enctype="multipart/form-data">
+	<label for="name">Name:</label>
+	<input type="text" placeholder="name" name="name" class="form-control" value="{{user.name}}">
+	<label for="lastname">Last Name:</label>
+	<input type="text" placeholder="Last Name" name="lastname" class="form-control" value="{{user.lastName}}">
+	<label for="age">Age:</label>
+	<input type="text" placeholder="Age" name="age" class="form-control" value="{{user.age}}">
+	<input type="file" placeholder="Avatar" name="avatar" value="{{user.avatar}}">
+	<br>
+	<button class="btn btn-primary">Update</button>
+</form>
+	

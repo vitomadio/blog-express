@@ -1,12 +1,37 @@
 <div class="container"><h1 style="text-align: center;">Posts</h1></div>
 
-	{{#each posts}}
-		<div class="thumbnail" > 
-			<h2>{{title}}</h2>
-			<img style="height:100px" src="{{imagen}}">
-			<div class="caption">{{description}}</div>
+{{#each posts }}
+	
+	<div class="thumbnail">
+		<div class="row">
+			<div class="col-md-6 col-sm-6">
+				<h2>{{title}}</h2>
+			</div>
+			<div class="col-md-3 pull-right">
+				<p><img src="{{user.avatar}}" style="height:50px"> {{user.email}}</p> 
+			</div>
 		</div>
-	{{/each}}
+
+		<img style="height:400px" src="{{imagen}}">
+		<div class="caption">{{description}}</div>
+		<div style="padding:5px;">
+		<a class="btn btn-primary" href="/{{_id}}">Show</a>
+		{{#if heart}}
+		<a href="{{_id}}/like"><i class="fa fa-heart fa-2x fa-pull-right"></i></a><p class="pull-right">Likes: {{count}}</p>
+		{{else}}
+		<a href="{{_id}}/like"><i class="fa fa-heart-o fa-2x fa-pull-right"></i></a>
+		{{/if}}
+		</div>
+	</div>
+	
+{{/each}}
+			
+			
+
+
+
+
+
 
 
 

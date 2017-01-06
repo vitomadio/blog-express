@@ -1,0 +1,15 @@
+{{#if messages.error}}
+<div class="aler alert-danger">{{messages.error}}</div>
+{{/if}}
+{{#if messages.info}}
+<div class="aler alert-danger">{{messages.info}}</div>
+{{/if}}
+{{#if messages.success}}
+<div class="aler alert-danger">{{messages.success}}</div>
+{{/if}}
+<h1>Reset Password</h1>
+<form action="/user/forgot" method="post">
+	<label for="email">Email</label>
+	<input type="text" placeholder="Email" name="email">
+	<button class="btn btn-primary">Send Email</button>
+</form>

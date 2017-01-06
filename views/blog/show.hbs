@@ -1,0 +1,26 @@
+
+<div class="thumbnail" >
+	<p id="user">{{post.user.email}}</p> 
+	<h2>{{post.title}}</h2>
+	<img style="height:100px" src="{{post.imagen}}">
+	<div class="caption" >{{post.description}}
+	<p id="editor">{{user.email}}</p>
+	<br>
+</div>
+	
+</div>
+<form action="/{{post._id}}/comment" method="post">
+<label for="comment">Comment Post: </label>
+	<input type="text-area" placeholder="Comment Post" name=
+"body" class="form-control">
+<br>
+<button class="btn btn-primary">Add Comment</button>
+</form>
+<hr>
+{{#each comments}}
+	<div class="row">
+	<p class="col-md-6">{{body}}</p><p class="pull-right"><strong>By:</strong> {{user.email}}</p>
+	<br>
+	</div>
+{{/each}}
+

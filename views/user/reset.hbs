@@ -1,0 +1,8 @@
+<h1>Set new password</h1>
+<form action="/user/reset/{{token}}" method="post">
+	<label for="password">Password:</label>
+	<input type="text" placeholder="Password" name="password">
+	<label for="confirm">Confirm Password:</label>
+	<input type="text" placeholder="Confirm password" name="confirm">
+	<button class="btn btn-primary" type="submit">Save</button>
+</form>

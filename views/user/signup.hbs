@@ -8,7 +8,8 @@
         {{/each}}
       </div>
     {{/if}}
-    <form class="" action="/signup" method="post">
+    {{success}}
+    <form class="" action="/user/signup/{{csrfToken}}" method="post">
       <div class="form-group">
         <label for="email">Email</label>
         <input type="text" name="email" id="email" class="form-control">

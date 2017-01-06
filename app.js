@@ -4,20 +4,23 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var session = require('express-session');
 var expHbs = require('express-handlebars');
 var mongoose = require('mongoose');
 var passport = require('passport');
+var passportLocal = require('passport-local');
 var expressValid = require('express-validator');
 var flash = require('connect-flash');
 
 
 var routes = require('./routes/index');
+var users = require('./routes/users');
 
 
 var app = express();
 
 mongoose.connect('mongodb://vitomadio:lolita@ds149567.mlab.com:49567/blognode');
-
+require('./config/passport');
 // view engine setup
 
 
@@ -31,14 +34,25 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(expressValid());
 app.use(cookieParser());
-app.use(require('express-session')({
-    secret: 'keyboard cat',
-    resave: false,
-    saveUninitialized: false
+app.use(session({secret:'secret',
+                 resave: false,
+                 saveUninitialized: false
 }));
 app.use(flash());
 app.use(passport.initialize());
 app.use(passport.session());
+
+passport.use(new passportLocal.Strategy(function(username, passport, done){
+
+}));
+
+passport.serializeUser(function(user, done){
+  done(user.id);
+});
+
+passport.deserializeUser(function(id, done){
+  done({id: id,})
+});
 
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -48,8 +62,16 @@ app.use(express.static(path.join(__dirname, 'public')));
 //   next();
 // });
 
+app.use(function(req, res, next){
+  res.locals.login = req.isAuthenticated();
+  res.locals.session = req.session;
+  res.locals.user = req.user;
+  next();
+});
 
+app.use('/user',users);
 app.use('/', routes);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
