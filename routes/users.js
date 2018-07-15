@@ -7,6 +7,7 @@ var fs = require('fs');
 var nodemailer = require('nodemailer');
 var async = require('async');
 var crypto = require('crypto');
+var xoauth2 = require('xoauth2');
 
 var User = require('../models/user');
 var Post = require('../models/post');
@@ -92,8 +93,12 @@ router.post('/signup/:token', passport.authenticate('local.signup', {
     var smtpTransport = nodemailer.createTransport('SMTP', {
         service: 'Gmail',
         auth: {
-          user: 'vito.madio01@gmail.com',
-          pass: 'lolitalolita'
+          xoauth2: xoauth2.createXOAuth2Generator({
+            user: 'vito.madio01@gmail.com',
+            clientId: '679857018380-br8c6g668enqfdbrfrvl6p40tc03qgle.apps.googleusercontent.com',
+            clientSecret: 'B_j6LFIfRtDwe5cROOBujS6P ',
+            refreshToken: '1/Gi6ge4hArt4Gu8A4i93B4zA5AyTrA38-lBWYe7inSd07zmrcp3pWlZ26WM4FLwua'
+          })
         }
     });
     var mailOptions = {
@@ -173,9 +178,13 @@ router.post('/forgot', function(req, res, next) {
     function(token, user, done) {
       var smtpTransport = nodemailer.createTransport('SMTP', {
         service: 'Gmail',
-        auth: {
-          user: 'vito.madio01@gmail.com',
-          pass: 'lolitalolita'
+         auth: {
+          xoauth2: xoauth2.createXOAuth2Generator({
+            user: 'vito.madio01@gmail.com',
+            clientId: '679857018380-br8c6g668enqfdbrfrvl6p40tc03qgle.apps.googleusercontent.com',
+            clientSecret: 'B_j6LFIfRtDwe5cROOBujS6P ',
+            refreshToken: '1/Gi6ge4hArt4Gu8A4i93B4zA5AyTrA38-lBWYe7inSd07zmrcp3pWlZ26WM4FLwua'
+          })
         }
       });
       var mailOptions = {
@@ -238,9 +247,13 @@ router.post('/reset/:token', function(req, res) {
     function(user, done) {
       var smtpTransport = nodemailer.createTransport('SMTP', {
         service: 'Gmail',
-        auth: {
-          user: 'vito.madio01@gmail.com',
-          pass: 'lolitalolita'
+       auth: {
+          xoauth2: xoauth2.createXOAuth2Generator({
+            user: 'vito.madio01@gmail.com',
+            clientId: '679857018380-br8c6g668enqfdbrfrvl6p40tc03qgle.apps.googleusercontent.com',
+            clientSecret: 'B_j6LFIfRtDwe5cROOBujS6P ',
+            refreshToken: '1/Gi6ge4hArt4Gu8A4i93B4zA5AyTrA38-lBWYe7inSd07zmrcp3pWlZ26WM4FLwua'
+          })
         }
       });
       var mailOptions = {
