@@ -94,10 +94,10 @@ router.post('/signup/:token', passport.authenticate('local.signup', {
         service: 'Gmail',
         auth: {
           xoauth2: xoauth2.createXOAuth2Generator({
-            user: 'vito.madio01@gmail.com',
-            clientId: '679857018380-br8c6g668enqfdbrfrvl6p40tc03qgle.apps.googleusercontent.com',
-            clientSecret: 'B_j6LFIfRtDwe5cROOBujS6P ',
-            refreshToken: '1/Gi6ge4hArt4Gu8A4i93B4zA5AyTrA38-lBWYe7inSd07zmrcp3pWlZ26WM4FLwua'
+            user: 'YOUR EMAIL HERE',
+            clientId: 'YOUR CLIENT ID',
+            clientSecret: 'CLIENT SECRET',
+            refreshToken: 'TOKEN'
           })
         }
     });
@@ -180,10 +180,10 @@ router.post('/forgot', function(req, res, next) {
         service: 'Gmail',
          auth: {
           xoauth2: xoauth2.createXOAuth2Generator({
-            user: 'vito.madio01@gmail.com',
-            clientId: '679857018380-br8c6g668enqfdbrfrvl6p40tc03qgle.apps.googleusercontent.com',
-            clientSecret: 'B_j6LFIfRtDwe5cROOBujS6P ',
-            refreshToken: '1/Gi6ge4hArt4Gu8A4i93B4zA5AyTrA38-lBWYe7inSd07zmrcp3pWlZ26WM4FLwua'
+            user: 'YOUR EMAIL',
+            clientId: 'YOUR CLIENT ID',
+            clientSecret: 'YOUR CLIENT SECRET',
+            refreshToken: 'TOKEN'
           })
         }
       });
@@ -249,10 +249,10 @@ router.post('/reset/:token', function(req, res) {
         service: 'Gmail',
        auth: {
           xoauth2: xoauth2.createXOAuth2Generator({
-            user: 'vito.madio01@gmail.com',
-            clientId: '679857018380-br8c6g668enqfdbrfrvl6p40tc03qgle.apps.googleusercontent.com',
-            clientSecret: 'B_j6LFIfRtDwe5cROOBujS6P ',
-            refreshToken: '1/Gi6ge4hArt4Gu8A4i93B4zA5AyTrA38-lBWYe7inSd07zmrcp3pWlZ26WM4FLwua'
+            user: 'YOUR EMAIL',
+            clientId: 'YOUR CLIENT ID',
+            clientSecret: 'YOUR CLIENT SECRET',
+            refreshToken: 'TOKEN'
           })
         }
       });
