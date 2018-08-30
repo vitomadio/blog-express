@@ -19,7 +19,7 @@ var users = require('./routes/users');
 
 var app = express();
 
-mongoose.connect('mongodb://vitomadio:lolita@ds149567.mlab.com:49567/blognode');
+mongoose.connect('mongodb://<username>:<password>@ds149567.mlab.com:49567/blognode');
 require('./config/passport');
 // view engine setup
 
